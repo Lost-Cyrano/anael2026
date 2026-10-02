@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>CVL 2027 · MAIRE Anael & ROCHE Jade</title>
   <style>
-    /* Reset & base */
     * {
       margin: 0;
       padding: 0;
@@ -21,7 +20,6 @@
       padding: 1rem;
     }
 
-    /* Conteneur principal fluide */
     .wrapper {
       max-width: 1200px;
       margin: 0 auto;
@@ -32,7 +30,6 @@
       transition: border-radius 0.2s;
     }
 
-    /* En-tête avec image de fond */
     .hero {
       position: relative;
       background-image: url('Background.jpg');
@@ -47,7 +44,6 @@
       isolation: isolate;
     }
 
-    /* Overlay sombre pour lisibilité */
     .hero::before {
       content: '';
       position: absolute;
@@ -116,7 +112,6 @@
       white-space: nowrap;
     }
 
-    /* Contenu principal */
     .main {
       padding: 2rem 1.5rem;
     }
@@ -127,7 +122,6 @@
       }
     }
 
-    /* Titres de section */
     .section-title {
       font-size: 1.6rem;
       font-weight: 700;
@@ -147,7 +141,6 @@
       }
     }
 
-    /* Liste du programme */
     .programme-list {
       list-style: none;
       display: flex;
@@ -197,7 +190,6 @@
       }
     }
 
-    /* Formulaire intégré */
     .form-container {
       margin-top: 2.5rem;
       background: #ffffff;
@@ -220,7 +212,6 @@
       background: #f9fcff;
     }
 
-    /* Ajustement iframe pour très petits écrans */
     @media (max-width: 480px) {
       .form-container iframe {
         min-height: 550px;
@@ -233,7 +224,6 @@
       }
     }
 
-    /* Petites notes / pied de page */
     .footer-note {
       text-align: center;
       font-size: 0.85rem;
@@ -243,7 +233,6 @@
       border-top: 1px solid #d9e4ed;
     }
 
-    /* Ajustements pour très grands écrans */
     @media (min-width: 1400px) {
       .wrapper {
         max-width: 1300px;
@@ -253,7 +242,6 @@
       }
     }
 
-    /* Support pour écrans pliables / très étroits */
     @media (max-width: 320px) {
       .hero .candidats {
         flex-direction: column;
@@ -267,7 +255,6 @@
       }
     }
 
-    /* Mode paysage sur téléphone */
     @media (max-height: 500px) and (orientation: landscape) {
       .hero {
         min-height: 200px;
@@ -277,7 +264,6 @@
       }
     }
 
-    /* Respect des préférences de mouvement réduit */
     @media (prefers-reduced-motion: reduce) {
       * {
         transition: none !important;
@@ -288,30 +274,25 @@
 </head>
 <body>
   <div class="wrapper">
-    <!-- EN-TÊTE avec image de fond -->
     <header class="hero">
       <div class="hero-content">
         <h1>
           MAIRE Anael <span>& ROCHE Jade</span>
         </h1>
         <div class="candidats">
-          <p><strong>MAIRE Anael</strong> · TG3 <span class="badge">Secrétaire général du CVL sortant</span> <span class="badge">Ex président MDL</span> <span class="badge">Président fondateur BDE</span></p>
+          <p><strong>MAIRE Anael</strong> · TG3 <span class="badge">Secrétaire général du CVL sortant</span> <span class="badge">Ex président MDL</span> <span class="badge">Président fondateur BDE Honoré Romane</span></p>
           <p><strong>ROCHE Jade</strong> · TG2 <span class="badge">Suppléante</span></p>
         </div>
       </div>
     </header>
 
-    <!-- CONTENU PRINCIPAL -->
     <main class="main">
-      <!-- Liste du programme -->
       <h2 class="section-title">Notre programme</h2>
       <ul class="programme-list">
         <li>Faire voter une réglementation avantageuse au Conseil d'Administration sur l'utilisation du téléphone</li>
         <li>Constituer une délégation forte au Conseil Académique à la Vie Lycéenne (CAVL) en coalition avec d'autres lycées contre l'actuel monopole des lycées de Gap</li>
-        <!-- Vous pouvez ajouter d'autres points ici -->
       </ul>
 
-      <!-- Formulaire intégré -->
       <h2 class="section-title">Proposez vos idées</h2>
       <div class="form-container">
         <iframe 
@@ -325,7 +306,6 @@
         </iframe>
       </div>
 
-      <!-- Pied de page discret -->
       <div class="footer-note">
         CVL 2027 · Ensemble pour un lycée qui nous ressemble
       </div>
