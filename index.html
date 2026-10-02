@@ -402,7 +402,6 @@
       margin-top: 1rem;
     }
 
-    /* Grille 2 colonnes pour titulaire / suppléante */
     .duo {
       display: grid;
       grid-template-columns: 1fr;
@@ -488,110 +487,132 @@
       overflow-wrap: break-word;
     }
 
-    .candidat-card p + p {
-      margin-top: -0.25rem;
-    }
-
-    /* ============ ALLIÉS ============ */
-    .allies-block {
+    /* ============ ALLIANCES ============ */
+    .alliances-block {
       margin-top: 1rem;
     }
 
-    .allies-subtitle {
+    .alliances-subtitle {
       font-size: clamp(1.05rem, 2.6vw, 1.25rem);
       font-weight: 700;
       color: #0b2b3b;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
 
-    .allies-subtitle .emoji {
+    .alliances-subtitle .emoji {
       font-size: 1.2em;
     }
 
-    .tags-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
+    .alliances-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
     }
 
-    .tag {
-      display: inline-flex;
+    @media (min-width: 560px) {
+      .alliances-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    /* Carte d'alliance : binôme titulaire + suppléant */
+    .alliance-card {
+      display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: 0.6rem;
       background: #ffffff;
-      border: 1.5px solid #dce7f0;
-      border-radius: 1rem;
-      padding: 0.6rem 0.95rem;
+      border: 1.5px solid #d6e2ee;
+      border-radius: 1.25rem;
+      padding: 1rem 1.1rem;
       min-width: 0;
       max-width: 100%;
+      position: relative;
+      overflow: hidden;
       transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s, background 0.2s;
     }
 
-    .tag:hover {
+    .alliance-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, #0b7b9e 0%, #2e9e6f 100%);
+    }
+
+    .alliance-card:hover {
       border-color: #0b7b9e;
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px -10px rgba(11, 123, 158, 0.35);
+      box-shadow: 0 12px 24px -12px rgba(11, 123, 158, 0.35);
       background: #f7fbfd;
     }
 
-    .tag .tag-name {
+    .alliance-card .alliance-label {
+      font-size: 0.68rem;
       font-weight: 700;
-      font-size: clamp(0.88rem, 2.2vw, 1rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0b7b9e;
+      opacity: 0.85;
+    }
+
+    .alliance-card .binome {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      min-width: 0;
+    }
+
+    .alliance-card .membre {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+
+    .alliance-card .membre .membre-role {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #5a7184;
+    }
+
+    .alliance-card .membre .membre-role.titulaire {
+      color: #0b7b9e;
+    }
+
+    .alliance-card .membre .membre-role.suppleant {
+      color: #a06b00;
+    }
+
+    .alliance-card .membre .membre-nom {
+      font-weight: 700;
+      font-size: clamp(0.9rem, 2.3vw, 1.02rem);
       color: #0b2b3b;
-      line-height: 1.2;
+      line-height: 1.25;
       word-wrap: break-word;
     }
 
-    .tag .tag-role {
-      font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+    .alliance-card .membre .membre-info {
+      font-size: clamp(0.72rem, 1.9vw, 0.82rem);
       color: #5a7184;
       font-weight: 500;
       line-height: 1.3;
       word-wrap: break-word;
     }
 
-    /* Variante allié (nous soutiennent) */
-    .tag.allie {
-      border-color: #cde8dd;
-      background: #f4fbf8;
-    }
-
-    .tag.allie:hover {
-      border-color: #2e9e6f;
-      box-shadow: 0 10px 20px -10px rgba(46, 158, 111, 0.35);
-      background: #ecf9f3;
-    }
-
-    .tag.allie .tag-name {
-      color: #176b48;
-    }
-
-    /* Variante soutien (que l'on soutient) */
-    .tag.soutien {
-      border-color: #e3d9f5;
-      background: #faf7fd;
-    }
-
-    .tag.soutien:hover {
-      border-color: #7c5cbf;
-      box-shadow: 0 10px 20px -10px rgba(124, 92, 191, 0.35);
-      background: #f4eefb;
-    }
-
-    .tag.soutien .tag-name {
-      color: #4b2f8a;
-    }
-
-    .allies-group {
-      margin-bottom: 1.75rem;
-    }
-
-    .allies-group:last-child {
-      margin-bottom: 0;
+    .alliance-card .separator {
+      height: 1px;
+      background: #e2eaf2;
+      margin: 0.1rem 0;
+      border: 0;
     }
 
     /* ============ PIED DE PAGE ============ */
@@ -634,9 +655,6 @@
       .section-title {
         padding-left: 0.75rem;
         border-left-width: 4px;
-      }
-      .tag {
-        width: 100%;
       }
     }
 
@@ -773,7 +791,7 @@
       </div>
 
       <!-- SECTION 3 : QUI SOMMES-NOUS -->
-      <h2 class="section-title" id="qui-sommes-nous">Qui sommes-nous et qui sont nos alliés</h2>
+      <h2 class="section-title" id="qui-sommes-nous">Qui sommes-nous et nos alliances</h2>
 
       <div class="qui-sommes-nous">
         <!-- Duo titulaire / suppléante -->
@@ -815,49 +833,83 @@
           </article>
         </div>
 
-        <!-- Alliés -->
-        <div class="allies-block">
-          <h3 class="allies-subtitle">
+        <!-- ALLIANCES -->
+        <div class="alliances-block">
+          <h3 class="alliances-subtitle">
             <span class="emoji" aria-hidden="true">🤝</span>
-            Nos alliés
+            Nos alliances
           </h3>
 
-          <div class="allies-group">
-            <p class="allies-subtitle" style="font-size: clamp(0.95rem, 2.3vw, 1.05rem); color:#176b48;">
-              Ils nous soutiennent
-            </p>
-            <div class="tags-grid">
-              <div class="tag allie">
-                <span class="tag-name">NOM Prénom</span>
-                <span class="tag-role">Rôle / Classe</span>
-              </div>
-              <div class="tag allie">
-                <span class="tag-name">NOM Prénom</span>
-                <span class="tag-role">Rôle / Classe</span>
-              </div>
-              <div class="tag allie">
-                <span class="tag-name">NOM Prénom</span>
-                <span class="tag-role">Rôle / Classe</span>
+          <div class="alliances-grid">
+            <!-- Alliance 1 -->
+            <div class="alliance-card">
+              <span class="alliance-label">Alliance</span>
+              <div class="binome">
+                <div class="membre">
+                  <span class="membre-role titulaire">Titulaire</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
+                <hr class="separator">
+                <div class="membre">
+                  <span class="membre-role suppleant">Suppléant·e</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="allies-group">
-            <p class="allies-subtitle" style="font-size: clamp(0.95rem, 2.3vw, 1.05rem); color:#4b2f8a;">
-              Nous les soutenons
-            </p>
-            <div class="tags-grid">
-              <div class="tag soutien">
-                <span class="tag-name">NOM Prénom</span>
-                <span class="tag-role">Rôle / Classe</span>
+            <!-- Alliance 2 -->
+            <div class="alliance-card">
+              <span class="alliance-label">Alliance</span>
+              <div class="binome">
+                <div class="membre">
+                  <span class="membre-role titulaire">Titulaire</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
+                <hr class="separator">
+                <div class="membre">
+                  <span class="membre-role suppleant">Suppléant·e</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
               </div>
-              <div class="tag soutien">
-                <span class="tag-name">NOM Prénom</span>
-                <span class="tag-role">Rôle / Classe</span>
+            </div>
+
+            <!-- Alliance 3 -->
+            <div class="alliance-card">
+              <span class="alliance-label">Alliance</span>
+              <div class="binome">
+                <div class="membre">
+                  <span class="membre-role titulaire">Titulaire</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
+                <hr class="separator">
+                <div class="membre">
+                  <span class="membre-role suppleant">Suppléant·e</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
               </div>
-              <div class="tag soutien">
-                <span class="tag-name">NOM Prénom</span>
-                <span class="tag-role">Rôle / Classe</span>
+            </div>
+
+            <!-- Alliance 4 (exemple, à supprimer ou dupliquer) -->
+            <div class="alliance-card">
+              <span class="alliance-label">Alliance</span>
+              <div class="binome">
+                <div class="membre">
+                  <span class="membre-role titulaire">Titulaire</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
+                <hr class="separator">
+                <div class="membre">
+                  <span class="membre-role suppleant">Suppléant·e</span>
+                  <span class="membre-nom">NOM Prénom</span>
+                  <span class="membre-info">Classe · Rôle éventuel</span>
+                </div>
               </div>
             </div>
           </div>
